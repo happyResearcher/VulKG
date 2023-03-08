@@ -1,11 +1,11 @@
-# VulDG
+# VulKG
 This repo contains the data and codes for the paper submitted to ACM TKDD, titled "A Compact Vulnerability Knowledge Graph for Risk Assessment".
 
 ## 1. Repo Structure
 
 
 ```
-VulGD
+VulKG
 ├── README.md 
 ├── import
 │   ├── AffectsAddProperty.csv
@@ -18,7 +18,7 @@ VulGD
 │   └── WeaknessNodes.csv
 ├── DescriptionEmbedding
 │   └── VulnerabilityNodesTextEmbedding20.pkl
-├── 2.VulGD_Deployment_Cypher.cypher
+├── 2.VulKG_Deployment_Cypher.cypher
 ├── 3.3.VCBD_link_prediction.py
 ├── 3.4.1.Plot_F1_score_comparison.py
 ├── 3.5.1.select_co_exploitation_links_in_training_and_test_sets.py
@@ -27,25 +27,25 @@ VulGD
 └── 3.5.3.non_topological_feature_extraction.py
 ```
 
-Folder **import** contains all original data for VulGD deployment.
+Folder **import** contains all original data for VulKG deployment.
 
 Folder **DescriptionEmbedding** contains the 20-dimensional extracted feature from vulnerability descriptions using a pre-trained BERT model. This file will be used in **3.5.3.non_topological_feature_extraction.py**. 
 
-File **2.VulGD_Deployment_Cypher.cypher** contains the cypher codes for VulGD deployment on the Neo4j graph database platform, described in Section 2. 
+File **2.VulKG_Deployment_Cypher.cypher** contains the cypher codes for VulKG deployment on the Neo4j graph database platform, described in Section 2. 
 
-Files 3.3 - 3.5.3 are the python codes for the use case, Vulnerability Co-Exploitation Behaviour Discovery (VCBD), on the VulGD.
+Files 3.3 - 3.5.3 are the python codes for the use case, Vulnerability Co-Exploitation Behaviour Discovery (VCBD), on the VulKG.
 
 
 
-## 2. VulGD Deployment
-This section introduces how to deploy the VulGD into the Neo4j graph database platform.
+## 2. VulKG Deployment
+This section introduces how to deploy the VulKG into the Neo4j graph database platform.
 ### 2.1 Programming Language
 [Cypher Query Language](https://neo4j.com/developer/cypher/)
 ### 2.2 Software/Platform
 Neo4j Desktop
-### 2.3 A step-by-step guide for VulGD Deployment
+### 2.3 A step-by-step guide for VulKG Deployment
 1. Download [(from here)](https://neo4j.com/download/) and install [(refer here)]( https://neo4j.com/docs/desktop-manual/current/installation/) Neo4j Desktop 1.4.15 or higher versions
-2. Create a project named **VulGD Project** with Neo4j Desktop.
+2. Create a project named **VulKG Project** with Neo4j Desktop.
 3. Add a local DBMS named **Graph DBMS** with Neo4j Desktop and set the password as **Neo4j**. Choose version 4.4.11 for **Graph DBMS**.
 4. Start **Graph DBMS**
 5. Install APOC [(refer here)](https://neo4j.com/labs/apoc/4.3/installation/) and Graph Data Science Library [(refer here)](https://neo4j.com/docs/graph-data-science/current/installation/neo4j-desktop/) plugins for **Graph DBMS** with Neo4j Desktop.
@@ -64,10 +64,10 @@ Neo4j Desktop
 7. Put all files in the [import](import/) folder into the **import** folder of **Graph DBMS**.
 8. Open **Graph DBMS** with **Neo4j Browser**. Since Neo4j Browser comes out-of-the-box when you install Neo4j Desktop on your system, no installation is required.
 9.  Click the **Enable multi statement query editor** to enable running multiple Cypher statements separated by semi-colons **;** in the Neo4j Browser setting.
-10. Run Cypher statements in the **2.VulGD_Deployment_Cypher.cypher** file with the Neo4j Browser to deploy VulKG.
+10. Run Cypher statements in the **2.VulKG_Deployment_Cypher.cypher** file with the Neo4j Browser to deploy VulKG.
 
 ## 3. Use case: Vulnerability Co-Exploitation Behaviour Discovery
-This section introduces how to implement the use case: Vulnerability Co-exploitation Behaviour Discovery (VCBD) on VulGD.
+This section introduces how to implement the use case: Vulnerability Co-exploitation Behaviour Discovery (VCBD) on VulKG.
 
 ### 3.1 Programing language
 Python and Cypher
@@ -96,7 +96,7 @@ Run python codes in **3.4.2.Plot_ROC.py** to get the visualization results repor
 
 ### 3.5 Subgraph dataset generation for VCBD task
 
-This subsection introduces how to generate a raw version and a ready-to-go version of graph datasets for the VCBD task, which are provided in folders named **GD_VCBD_Raw** and **GD_VCBD_Ready_to_go**.  In case someone wants to know the details on how to extract subgraph datasets from VulGD.  
+This subsection introduces how to generate a raw version and a ready-to-go version of graph datasets for the VCBD task, which are provided in folders named **GD_VCBD_Raw** and **GD_VCBD_Ready_to_go**.  In case someone wants to know the details on how to extract subgraph datasets from VulKG.  
 
 #### 3.5.1 Programing language
 Python and Cypher
