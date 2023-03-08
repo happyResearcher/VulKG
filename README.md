@@ -1,5 +1,5 @@
 # VulDG
-This repo contains the data and codes for the paper submitted to IJCAI 2023, titled "A Comprehensive Graph Dataset for Software Vulnerability Assessment".
+This repo contains the data and codes for the paper submitted to ACM TKDD, titled "A Compact Vulnerability Knowledge Graph for Risk Assessment".
 
 ## 1. Repo Structure
 
